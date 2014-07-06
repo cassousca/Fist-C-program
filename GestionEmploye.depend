@@ -1,0 +1,67 @@
+# depslib dependency file v1.0
+1404361233 source:c:\users\alain\onedrive\c\gestionemploye\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"FonctionLDC.c"
+
+1404361717 c:\users\alain\onedrive\c\gestionemploye\fonctionldc.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1403981946 c:\users\alain\onedrive\c\gestionemploye\autrefonction.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"FonctionLDC.h"
+
+1403981433 c:\users\alain\onedrive\c\gestionemploye\fonctionldc.h
+	<stdio.h>
+	<stdlib.h>
+
+1404362036 source:e:\gestionemploye\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"FonctionLDC.c"
+
+1404414822 e:\gestionemploye\fonctionldc.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1404362036 source:d:\gestionemploye\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"FonctionLDC.c"
+
+1404428680 d:\gestionemploye\fonctionldc.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1404362036 source:c:\users\alain\skydrive\gestionemploye\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"FonctionLDC.c"
+
+1404429607 c:\users\alain\skydrive\gestionemploye\fonctionldc.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1404532371 source:c:\users\k-sousca\skydrive\projet structure de donnees\onedrive-2014-07-05\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"FonctionLDC.c"
+
+1404533370 c:\users\k-sousca\skydrive\projet structure de donnees\onedrive-2014-07-05\fonctionldc.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
