@@ -51,8 +51,7 @@ int main(){
 
 			case 5:
 				effacer_premier(l);
-				printf("Le premier employe de la liste est supprime\n");
-				printf("Taper n'importe quelle touche pour retourner au menu principal");
+				printf("\nTaper n'importe quelle touche pour retourner au menu principal");
 				getch();
 			break;
 

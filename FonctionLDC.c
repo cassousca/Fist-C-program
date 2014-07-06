@@ -262,7 +262,7 @@ liste *inserer_apres2(liste *emp_list, employe *nouveau_emp, char code_element[5
 }
 
 employe *effacer_premier(liste *emp_list){
-    if (emp_list != NULL){
+    if (emp_list->taille != 0){
 		if (emp_list->debut->suivant == NULL){
 			emp_list-> debut = NULL;
 			emp_list->fin = NULL;
@@ -272,12 +272,14 @@ employe *effacer_premier(liste *emp_list){
 		}
 		emp_list->taille--;
 		ecrire_liste(emp_list);
-    }
+		printf("\nLe premier employe de la liste est supprime\n");
+    }else
+        printf("\nAucun n'employe n'est encore enregistre\n");
     return emp_list;
 }
 
 employe *effacer_dernier(liste *emp_list){
-    if (emp_list != NULL){
+    if (emp_list->taille != 0){
 		if (emp_list->fin->precedent == NULL){
 			emp_list-> debut = NULL;
 			emp_list->fin = NULL;
@@ -287,7 +289,10 @@ employe *effacer_dernier(liste *emp_list){
 		}
 		emp_list->taille--;
 		ecrire_liste(emp_list);
-    }
+        printf("\nLe premier employe de la liste est supprime\n");
+    }else
+        printf("\nAucun n'employe n'est encore enregistre\n");
+
     return emp_list;
 }
 
@@ -351,6 +356,8 @@ void afficher_liste(liste *l){
     {
         printf("\n=======================================================\n");
         employe *emp = l->debut;
+        if(emp == NULL)
+            printf("Aucun employe n'a ete encore enregistre\n");
         while (emp != NULL)
         {
             printf("Code : %s\n", emp->code);
@@ -373,7 +380,7 @@ void afficher_liste_arr(liste *l){
         employe *emp_temp1;
 
         employe *empl = l->debut;
-        do{
+        while (empl != NULL){
             employe *emp_arr = malloc(sizeof *emp_arr);
             memcpy(emp_arr, empl, sizeof *emp_arr);
             employe *emp_temp2 = malloc(sizeof *emp_temp2);
@@ -392,9 +399,10 @@ void afficher_liste_arr(liste *l){
                 }
             }
             empl = empl->suivant;
-        }while (empl != NULL);
+        }
         afficher_liste(liste_arr);
     }
+    afficher_liste(l);
 
 }
 
@@ -433,8 +441,11 @@ liste *lire_liste(){
             ajouter_emp(l, emp);
         }
         fclose(fichier);
-        return l;
+    }else{
+        printf("\n\nVous n'aviez encore enregistre aucun employe\nTapez n'importe quelle touche pour continuer ");
+        getch();
     }
+    return l;
 }
 
 int nettoyer(){
