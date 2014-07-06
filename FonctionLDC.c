@@ -359,7 +359,8 @@ void afficher_liste(liste *l){
             printf("Date d'embauche : %s\n", emp->embdate);
             printf("Age : %d\n", emp->age);
             emp = emp->suivant;
-            printf("-------------------------------------------------------\n");
+            if (emp != NULL)
+                printf("-------------------------------------------------------\n");
         }
     }
     printf("\n=======================================================\n");
