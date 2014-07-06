@@ -1,4 +1,5 @@
 Fist-C-program
 ==============
-- This is one my fist c program, just for learning purpose.
-- I create a program that manage a list of employees with basic informations.
+This is one of my fist c program, just for learning purpose.
+
+this program manages a list of employees with basic informations
