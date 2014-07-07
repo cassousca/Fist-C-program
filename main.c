@@ -19,14 +19,14 @@ int main(){
 		switch(choix){
 			case 1:
 				ajouter_debut(l, saisie_employe(l));
-				printf("L'employe est ajouter avec success au debut de la liste\n");
+				printf("\nL'employe est ajouter avec success au debut de la liste\n");
 				printf("Taper n'importe quelle touche pour retourner au menu principal");
 				getch();
 			break;
 
 			case 2:
 				ajouter_fin(l, saisie_employe(l));
-				printf("L'employe est ajouter avec success a la fin de liste\n");
+				printf("\nL'employe est ajouter avec success a la fin de liste\n");
 				printf("Taper n'importe quelle touche pour retourner au menu principal");
 				getch();
 			break;

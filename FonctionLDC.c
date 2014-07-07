@@ -64,6 +64,44 @@ liste *ajouter_fin(liste *emp_list, employe *emp){
     return emp_list; /* on retourne notre nouvelle liste */
 }
 
+char *get_date(){
+    static char  a[10];
+    char* p;
+    char  c;
+    int   x;
+    p = a;
+    x = 0;
+
+    do
+    {
+        c = getch();
+        if (isdigit(c)){
+            printf("%c", c);
+            p[x++] = c;
+            if (x == 2 || x == 5) {
+                printf("/");
+                p[x++] = '/';
+            }
+        }
+
+        if(c == '\b'){
+            printf("%c", '\b');
+            printf("%c", ' ');
+            printf("%c", '\b');
+            x--;
+            if (x == 2 || x == 5) {
+                printf("%c", '\b');
+                printf("%c", ' ');
+                printf("%c", '\b');
+                x= x--;
+            }
+        }
+    } while(x != 8);
+    p[x] = '\0';  // rendre p une chaine de caractere
+
+    return p; // retourner le mot de passe
+}
+
 char* getpass()
 {
     static char  a[50];
@@ -502,12 +540,12 @@ employe *saisie_employe(liste *l){
 
         //saisie de la date d'embauche
         printf("\nEntrer la date d'embauche de l'employe\n");
-		printf("Date d'embauche : ");
-        lirechaine(emp->embdate, sizeof emp->embdate);
+		printf("\tDate : ");
+        strcpy(emp->embdate, get_date());
 
         //saisie de l'age de l'employe
-        printf("\nEntrer l'age de l'employe\n");
-		printf("Age : ");
+        printf("\n\nEntrer l'age de l'employe\n");
+		printf("\tAge : ");
         scanf("%d", &emp->age);
         nettoyer();
     }
