@@ -75,16 +75,31 @@ char *get_date(){
     do
     {
         c = getch();
-        if (isdigit(c)){
-            printf("%c", c);
-            p[x++] = c;
+        int i = c -'0';
+        if (isdigit(c) && x < 10){
+            if(i < 4 && x == 0){
+                printf("%c", c);
+                p[x++] = c;
+            }else if((p[x-1] - '0' == 3 && x == 1 && i < 2) || (p[x-1] - '0' == 0 && x == 1 && i > 0) || (p[x-1] - '0' < 3 && p[x-1] - '0' != 0 && x == 1)
+                     || (i <=1 && x == 3) || (p[x-1] - '0' == 1 && x == 4 && i <= 2)
+                     || (p[x-1] - '0' == 0 && x == 4 && i > 0) || x > 5){
+                printf("%c", c);
+                p[x++] = c;
+            }
             if (x == 2 || x == 5) {
                 printf("/");
                 p[x++] = '/';
             }
         }
 
-        if(c == '\b'){
+        if (x == 2 || x == 5) {
+            printf("%c", '\b');
+            printf("%c", ' ');
+            printf("%c", '\b');
+            x= x--;
+        }
+
+        if(c == '\b' && x > 0){
             printf("%c", '\b');
             printf("%c", ' ');
             printf("%c", '\b');
@@ -96,7 +111,7 @@ char *get_date(){
                 x= x--;
             }
         }
-    } while(x != 8);
+    } while(c != '\r' );
     p[x] = '\0';  // rendre p une chaine de caractere
 
     return p; // retourner le mot de passe
@@ -120,11 +135,50 @@ char* getpass()
             putch('*');  // afficher * a la place de chaque caractere du mot de passe
             p[x++] = c;  // ajouter le caractere dans le mot de passe
         }
+
+        if(c == '\b' && x > 0){
+            printf("%c", '\b');
+            printf("%c", ' ');
+            printf("%c", '\b');
+            x--;
+        }
         c = getch(); // lecture du caractere suivant
     }
     p[x] = '\0';  // rendre p une chaine de caractere
 
     return p; // retourner le mot de passe
+}
+
+int get_age()
+{
+    static char  a[3];
+    char* p;
+    char  c; // Chaque caractere du mot de passe
+    int   x; // position du caractere dans le mot de passe
+
+    p = a;      // pointer le mot de passe
+    c = getch(); // lecture du premier caractere
+    x = 0;       // initialise l'index
+
+    // boucle jusqu'a ce que l'utilisateur presse enter
+    while (c != '\r')
+    {
+        if (isdigit(c) && x < 3) {//ignorer le backspace
+            printf("%c", c);  // afficher * a la place de chaque caractere du mot de passe
+            p[x++] = c;  // ajouter le caractere dans le mot de passe
+        }
+
+        if(c == '\b' && x > 0){
+            printf("%c", '\b');
+            printf("%c", ' ');
+            printf("%c", '\b');
+            x--;
+        }
+        c = getch(); // lecture du caractere suivant
+    }
+    p[x] = '\0';  // rendre p une chaine de caractere
+
+    return atoi(p); // retourner le mot de passe
 }
 
 
@@ -531,7 +585,7 @@ employe *saisie_employe(liste *l){
 
         //saisie du prenom
         printf("\tPrenom : ");
-        lirechaine(emp->prenom, sizeof emp->prenom);
+        lirechaine(emp->nom, sizeof emp->nom);
 		while(verifier_nom(emp->prenom) == 0){
 			printf("Le prenom ne doit pas contenir de chiffre\n");
 			printf("\tPrenom : ");
@@ -539,15 +593,14 @@ employe *saisie_employe(liste *l){
 		}
 
         //saisie de la date d'embauche
-        printf("\nEntrer la date d'embauche de l'employe\n");
+        printf("\nEntrer la date d'embauche de l'employe. Format : JJ/MM/AAAA\n");
 		printf("\tDate : ");
         strcpy(emp->embdate, get_date());
 
         //saisie de l'age de l'employe
         printf("\n\nEntrer l'age de l'employe\n");
 		printf("\tAge : ");
-        scanf("%d", &emp->age);
-        nettoyer();
+        emp->age = get_age();
     }
 
     return emp;
