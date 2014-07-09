@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include <windows.h>
 #include "FonctionLDC.c"
 
 
 
 
 int main(){
+    SetConsoleTitle("Gestion Employes");
 	int choix,p;
 	char code[50];
 	login();
@@ -57,7 +59,6 @@ int main(){
 
 			case 6:
 				effacer_dernier(l);
-				printf("Le dernier employe de la liste est supprime\n");
 				printf("Taper n'importe quelle touche pour retourner au menu principal");
 				getch();
 			break;

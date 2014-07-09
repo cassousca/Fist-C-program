@@ -68,9 +68,10 @@ char *get_date(){
     static char  a[10];
     char* p;
     char  c;
-    int   x;
+    int   x, sortie;
     p = a;
     x = 0;
+    sortie = 0;
 
     do
     {
@@ -90,7 +91,7 @@ char *get_date(){
                 printf("/");
                 p[x++] = '/';
             }
-        }
+        }else if (c == '\r' && x == 10) sortie = 1;
 
         if (x == 2 || x == 5) {
             printf("%c", '\b');
@@ -111,7 +112,7 @@ char *get_date(){
                 x= x--;
             }
         }
-    } while(c != '\r' );
+    } while(sortie == 0);
     p[x] = '\0';  // rendre p une chaine de caractere
 
     return p; // retourner le mot de passe
@@ -381,7 +382,7 @@ employe *effacer_dernier(liste *emp_list){
 		}
 		emp_list->taille--;
 		ecrire_liste(emp_list);
-        printf("\nLe premier employe de la liste est supprime\n");
+        printf("\nLe dernier employe de la liste est supprime\n");
     }else
         printf("\nAucun n'employe n'est encore enregistre\n");
 
@@ -554,7 +555,7 @@ employe *saisie_employe(liste *l){
         do{
             existe = 0;
             printf("\nEntrer le code de l'employe\n");
-            printf("\Code : ");
+            printf("\tCode : ");
             scanf("%s", &code_temp);
             nettoyer();
 
@@ -593,8 +594,8 @@ employe *saisie_employe(liste *l){
 		}
 
         //saisie de la date d'embauche
-        printf("\nEntrer la date d'embauche de l'employe. Format : JJ/MM/AAAA\n");
-		printf("\tDate : ");
+        printf("\nEntrer la date d'embauche en tenant compte du format ci-dessous.\n\t\tJJ/MM/AAAA\n");
+		printf("\tDate :\t");
         strcpy(emp->embdate, get_date());
 
         //saisie de l'age de l'employe
