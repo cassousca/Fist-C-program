@@ -65,13 +65,14 @@
 	<stdlib.h>
 	<conio.h>
 
-1404875541 source:c:\users\alain\documents\github\fist-c-program\main.c
+1404879688 source:c:\users\alain\documents\github\fist-c-program\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
+	<windows.h>
 	"FonctionLDC.c"
 
-1404877844 c:\users\alain\documents\github\fist-c-program\fonctionldc.c
+1405043164 c:\users\alain\documents\github\fist-c-program\fonctionldc.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
