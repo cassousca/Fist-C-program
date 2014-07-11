@@ -90,13 +90,6 @@ char *get_date(){
             }
         }else if (c == '\r' && x == 10) sortie = 1;
 
-        if (x == 2 || x == 5) {
-            printf("%c", '\b');
-            printf("%c", ' ');
-            printf("%c", '\b');
-            x= x--;
-        }
-
         if(c == '\b' && x > 0){
             printf("%c", '\b');
             printf("%c", ' ');
@@ -609,8 +602,6 @@ employe *modifier_employe(liste *l, char code[50]){
 
     int i, existe;
     if (emp != NULL){
-		//copie du code de l'employe
-        strcpy(emp->code, code);
 
         printf("\nSaisie du nom complet de l'employe\n");
         //saisie du nom
@@ -632,15 +623,14 @@ employe *modifier_employe(liste *l, char code[50]){
 		}
 
         //saisie de la date d'embauche
-        printf("\nEntrer la date d'embauche de l'employe\n");
-		printf("Date d'embauche : ");
-        lirechaine(emp->embdate, sizeof emp->embdate);
+        printf("\nEntrer la date d'embauche en tenant compte du format ci-dessous.\n\t\tJJ/MM/AAAA\n");
+		printf("\tDate :\t");
+        strcpy(emp->embdate, get_date());
 
         //saisie de l'age de l'employe
         printf("\nEntrer l'age de l'employe\n");
 		printf("Age : ");
-        scanf("%d", &emp->age);
-        nettoyer();
+        emp->age = get_age();
         ecrire_liste(l);
     }
 
