@@ -46,19 +46,19 @@ liste *new_liste(void){
 
 liste *ajouter_fin(liste *emp_list, employe *emp){
     emp->suivant = NULL; /* On fait pointer suivant vers NULL */
-    if (emp_list->fin == NULL) /* Cas où notre liste est vide (pointeur vers fin de liste à  NULL) */
+    if (emp_list->fin == NULL) /* Cas oï¿½ notre liste est vide (pointeur vers fin de liste ï¿½  NULL) */
     {
         emp->precedent = NULL; /* On fait pointer p_prev vers NULL */
-        emp_list->debut = emp; /* On fait pointer la tête de liste vers le nouvel élément */
-        emp_list->fin = emp; /* On fait pointer la fin de liste vers le nouvel élément */
+        emp_list->debut = emp; /* On fait pointer la tï¿½te de liste vers le nouvel ï¿½lï¿½ment */
+        emp_list->fin = emp; /* On fait pointer la fin de liste vers le nouvel ï¿½lï¿½ment */
     }
-    else /* Cas où des éléments sont déjà présents dans notre liste */
+    else /* Cas oï¿½ des ï¿½lï¿½ments sont dï¿½jï¿½ prï¿½sents dans notre liste */
     {
-        emp_list->fin->suivant = emp; /* On relie le dernier élément de la liste vers notre nouvel élément (début du chaînage) */
-        emp->precedent = emp_list->fin; /* On fait pointer p_prev vers le dernier élément de la liste */
-        emp_list->fin = emp; /* On fait pointer la fin de liste vers notre nouvel élément (fin du chaînage: 3 étapes) */
+        emp_list->fin->suivant = emp; /* On relie le dernier ï¿½lï¿½ment de la liste vers notre nouvel ï¿½lï¿½ment (dï¿½but du chaï¿½nage) */
+        emp->precedent = emp_list->fin; /* On fait pointer p_prev vers le dernier ï¿½lï¿½ment de la liste */
+        emp_list->fin = emp; /* On fait pointer la fin de liste vers notre nouvel ï¿½lï¿½ment (fin du chaï¿½nage: 3 ï¿½tapes) */
     }
-    emp_list->taille++; /* Incrémentation de la taille de la liste */
+    emp_list->taille++; /* Incrï¿½mentation de la taille de la liste */
     ecrire_employe(emp);
 
     return emp_list; /* on retourne notre nouvelle liste */
@@ -175,19 +175,19 @@ int get_age()
 
 liste *ajouter_emp(liste *emp_list, employe *emp){
     emp->suivant = NULL; /* On fait pointer suivant vers NULL */
-    if (emp_list->fin == NULL) /* Cas où notre liste est vide (pointeur vers fin de liste à  NULL) */
+    if (emp_list->fin == NULL) /* Cas oï¿½ notre liste est vide (pointeur vers fin de liste ï¿½  NULL) */
     {
         emp->precedent = NULL; /* On fait pointer p_prev vers NULL */
-        emp_list->debut = emp; /* On fait pointer la tête de liste vers le nouvel élément */
-        emp_list->fin = emp; /* On fait pointer la fin de liste vers le nouvel élément */
+        emp_list->debut = emp; /* On fait pointer la tï¿½te de liste vers le nouvel ï¿½lï¿½ment */
+        emp_list->fin = emp; /* On fait pointer la fin de liste vers le nouvel ï¿½lï¿½ment */
     }
-    else /* Cas où des éléments sont déjà présents dans notre liste */
+    else /* Cas oï¿½ des ï¿½lï¿½ments sont dï¿½jï¿½ prï¿½sents dans notre liste */
     {
-        emp_list->fin->suivant = emp; /* On relie le dernier élément de la liste vers notre nouvel élément (début du chaînage) */
-        emp->precedent = emp_list->fin; /* On fait pointer p_prev vers le dernier élément de la liste */
-        emp_list->fin = emp; /* On fait pointer la fin de liste vers notre nouvel élément (fin du chaînage: 3 étapes) */
+        emp_list->fin->suivant = emp; /* On relie le dernier ï¿½lï¿½ment de la liste vers notre nouvel ï¿½lï¿½ment (dï¿½but du chaï¿½nage) */
+        emp->precedent = emp_list->fin; /* On fait pointer p_prev vers le dernier ï¿½lï¿½ment de la liste */
+        emp_list->fin = emp; /* On fait pointer la fin de liste vers notre nouvel ï¿½lï¿½ment (fin du chaï¿½nage: 3 ï¿½tapes) */
     }
-    emp_list->taille++; /* Incrémentation de la taille de la liste */
+    emp_list->taille++; /* Incrï¿½mentation de la taille de la liste */
 
     return emp_list; /* on retourne notre nouvelle liste */
 }
@@ -492,7 +492,7 @@ void afficher_liste_arr(liste *l){
 void ecrire_employe(employe *emp){
     FILE *fichier = fopen("employes.doc", "a+");
     if (fichier != NULL){
-        // On l'écrit dans le fichier
+        // On l'ï¿½crit dans le fichier
         fprintf(fichier, "%s;\t%s;\t%s;\t%s;\t%d\n", emp->code, emp->nom, emp->prenom, emp->embdate, emp->age);
         fclose(fichier);
     }
@@ -503,7 +503,7 @@ void ecrire_liste(liste *l){
     FILE *fichier = fopen("employes.doc", "w+");
     employe *emp = l->debut;
     if (fichier != NULL){
-        // On l'écrit dans le fichier
+        // On l'ï¿½crit dans le fichier
         while(emp != NULL){
             ecrire_employe(emp);
             emp = emp->suivant;
@@ -576,7 +576,7 @@ employe *saisie_employe(liste *l){
 
         //saisie du prenom
         printf("\tPrenom : ");
-        lirechaine(emp->nom, sizeof emp->nom);
+        lirechaine(emp->prenom, sizeof emp->prenom);
 		while(verifier_nom(emp->prenom) == 0){
 			printf("Le prenom ne doit pas contenir de chiffre\n");
 			printf("\tPrenom : ");
@@ -749,8 +749,8 @@ void menu(){
     printf("|  6\tSuppression du dernier employe de la liste d'employes            |\n");
     printf("|  7\tSuppression d'un employe selon sa position dans liste d'employes |\n");
     printf("|  8\tAffichage de l'ensemble des employes par ordre alphabetique      |\n");
-    printf("|  9\tRecherche d'un employe dans la liste à partir de son code        |\n");
-    printf("|  10\tModification des informations d’un employe dans la liste         |\n");
+    printf("|  9\tRecherche d'un employe dans la liste ï¿½ partir de son code        |\n");
+    printf("|  10\tModification des informations dï¿½un employe dans la liste         |\n");
     printf("|  11\tAffichage des employes dans l'ordre de saisie de la liste        |\n");
     printf("|  12\tChangement du nom d'utilisateur et du mot de passe               |\n");
     printf("|  13\tSortie du programme                                              |\n");
