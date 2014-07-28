@@ -77,3 +77,15 @@
 	<stdlib.h>
 	<conio.h>
 
+1406587817 source:c:\users\marie kettly\documents\github\fist-c-program\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	"FonctionLDC.c"
+
+1406587817 c:\users\marie kettly\documents\github\fist-c-program\fonctionldc.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+

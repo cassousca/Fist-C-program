@@ -4,9 +4,6 @@
 #include <windows.h>
 #include "FonctionLDC.c"
 
-
-
-
 int main(){
     SetConsoleTitle("Gestion Employes");
 	int choix,p;
